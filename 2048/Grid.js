@@ -104,10 +104,12 @@ class Cell {
     }
 
     mergeTiles() {
-        if (this.tile == null || this.#mergeTile == null) return;
+        if (this.tile == null || this.#mergeTile == null) return false;
         this.tile.value *= 2;
         this.mergeTile.remove();
         this.mergeTile = null;
+
+        return true;
     }
 }
 

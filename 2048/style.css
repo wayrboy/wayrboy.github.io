@@ -7,12 +7,38 @@
 
 body {
     background-color: #333;
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     font-size: 7.5vmin;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 3vmin;
+    border-bottom: 3px solid #ccc;
+}
+
+.title {
+    color: #ccc;
+}
+
+#score {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vmin;
+    color: #ccc;
+    background-color: #333;
+}
+#score span {
+    font-size: 5vmin;
+    text-align: center;
+    color: #ccc;
+    animation: scaleScore 200ms ease-in-out;
 }
 
 #game-board {
@@ -59,5 +85,11 @@ body {
     0% {
         opacity: 0.5;
         transform: scale(0);
+    }
+}
+
+@keyframes scaleScore {
+    50% {
+        transform: scale(1.5);
     }
 }
