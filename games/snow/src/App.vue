@@ -8,9 +8,10 @@ const science = useScienceStore()
 
 
 <template>
-  <Card />
+  <Card title="伐木" />
 
-  <Card v-if="science.smithy" />
+  <Card title="挖铁" v-if="science.smithy" />
+  <Card title="挖石头" v-if="science.smithy" />
 
 </template>
 
