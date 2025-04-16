@@ -25,7 +25,7 @@ function clickBtn() {
   progress.value.style.display = "flex"
   let pro = 0
   let t = setInterval(() => {
-    pro += 10
+    pro += 5
     progress.value.style.width = `${pro}%`;
     if (pro >= 100) {
       pro = 0
