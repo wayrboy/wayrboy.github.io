@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import ScienceBtn from './Card/ScienceBtn.vue'
 import pickupBtn from './Card/pickupBtn.vue'
 import { useScienceStore } from '@/stores/counter'
 
