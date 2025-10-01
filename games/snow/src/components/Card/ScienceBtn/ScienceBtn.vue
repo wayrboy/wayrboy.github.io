@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import { ref, reactive, computed } from 'vue'
 import { useIconsStore, useScienceStore } from '@/stores/counter'
-import Tooltip from '../tooltip/Tooltip.vue'
+import Tooltip from '../../Tooltip/Tooltip.vue'
 
 let tooltipShow = ref(false)
 

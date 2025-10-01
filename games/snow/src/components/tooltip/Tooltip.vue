@@ -1,5 +1,5 @@
 <template>
-  <div>{{ prop.tooltip }}</div>
+  <div class="tooltip">{{ prop.tooltip }}</div>
 </template>
 
 <script setup lang="ts">
@@ -7,16 +7,20 @@ let prop = defineProps(['tooltip'])
 </script>
 
 <style scoped>
-div {
-  /* display: none; */
+* {
+  font-size: 1rem;
+}
+
+.tooltip {
   position: absolute;
+  pointer-events: none;
   top: 110%;
-  left: 50%;
-  transform: translateX(-50%);
+  /* left: 100px; */
+  /* transform: translateX(-50%); */
 
   border-radius: 5px;
   background-color: #888;
-  padding: 20px;
+  padding: 10px;
 
   width: 200px;
 

@@ -6,7 +6,7 @@
       </div>
 
       <div class="right">
-        <ScienceBtn name="点击伐木数量" v-if="science.pickupWoodNum.unlock" />
+        <ScienceBtn name="点击伐木数量" />
       </div>
     </div>
   </div>
@@ -14,7 +14,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import pickupBtn from './Card/pickupBtn.vue'
+import pickupBtn from './Card/PickupBtn/pickupBtn.vue'
+import ScienceBtn from './Card/ScienceBtn/ScienceBtn.vue'
 import { useScienceStore } from '@/stores/counter'
 
 let prop = defineProps(['title'])

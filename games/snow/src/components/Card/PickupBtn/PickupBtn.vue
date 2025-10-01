@@ -1,6 +1,14 @@
 <template>
-  <button ref="btn" @click="pickup" :disabled="canWork">
+  <button
+    ref="btn"
+    @click="pickup"
+    :disabled="canWork"
+    @mouseenter="tooltipShow = true"
+    @mouseleave="tooltipShow = false"
+  >
     {{ prop.name }}
+
+    <Tooltip tooltip="这是一个工具提示" />
 
     <div ref="progress" class="progress"></div>
   </button>
@@ -9,6 +17,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useResourcesStore } from '@/stores/counter'
+import Tooltip from '../../Tooltip/Tooltip.vue'
 
 const resources = useResourcesStore()
 resources.$subscribe((mutate, state) => {
@@ -20,6 +29,7 @@ const progress = ref()
 
 let prop = defineProps(['name', 'resource'])
 let canWork = ref(false)
+let tooltipShow = ref(false)
 
 function pickup() {
   let proV = 0
@@ -40,9 +50,9 @@ function pickup() {
 </script>
 
 <style scoped>
-/* * {
+* {
   box-sizing: border-box;
-} */
+}
 
 button {
   position: relative;
