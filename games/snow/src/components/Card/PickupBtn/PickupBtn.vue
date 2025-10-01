@@ -16,12 +16,21 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+<<<<<<< HEAD:games/snow/src/components/Card/PickupBtn/PickupBtn.vue
 import { useResourcesStore } from '@/stores/counter'
 import Tooltip from '../../Tooltip/Tooltip.vue'
+=======
+import { useResourcesStore, useScienceStore } from '@/stores/counter'
+>>>>>>> 16b805c348265b733e8fbb5a362ab44a98edfc03:games/snow/src/components/Card/pickupBtn.vue
 
 const resources = useResourcesStore()
 resources.$subscribe((mutate, state) => {
   localStorage.setItem('resources', JSON.stringify(state.resources))
+})
+
+const science = useScienceStore()
+science.$subscribe((mutate, state) => {
+  localStorage.setItem('science', JSON.stringify(state.pickupWoodNum))
 })
 
 const btn = ref()
@@ -41,6 +50,7 @@ function pickup() {
       proV = 0
       canWork.value = false
       resources.addNum(prop.resource)
+      science.pickupWoodNum.unlock = true
       clearInterval(timer)
     }
 

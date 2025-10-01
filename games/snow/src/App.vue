@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import Card from './components/Card.vue'
 import ResourcesBar from './components/ResourcesBar.vue'
-import { useScienceStore } from '@/stores/counter'
+import { useCardStore, useResourcesStore, useScienceStore } from '@/stores/counter'
 
 const science = useScienceStore()
+// const { resources: s } = useResourcesStore()
+const cardList = useCardStore()
 </script>
 
 <template>
   <ResourcesBar />
-  <Card title="伐木" />
-  <Card title="伐木" />
 
-  <Card title="挖铁" v-if="science.smithy" />
-  <Card title="挖石头" v-if="science.smithy" />
+  <Card v-for="c in cardList.list" :title="c.name" />
+
 </template>
 
 <style scoped></style>

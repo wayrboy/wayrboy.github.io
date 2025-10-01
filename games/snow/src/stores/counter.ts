@@ -4,13 +4,26 @@ import { type IBuilding, type IResource } from '@/types'
 import type { forEachChild } from 'typescript'
 import { errorMessages } from 'vue/compiler-sfc'
 
+export const useCardStore = defineStore('card', () => {
+  interface ICard {
+    name: string
+    unlock: boolean
+  }
+  const list = reactive<ICard[]>([
+    { name: '木材', unlock: true },
+    { name: '铁矿', unlock: false },
+    { name: '石矿', unlock: false },
+  ])
+  return { list }
+})
+
 export const useResourcesStore = defineStore('resources', () => {
   const resources =
     reactive<IResource[]>(JSON.parse(localStorage.getItem('resources') as string)) ||
     reactive<IResource[]>([
-      { name: 'wood', num: 0, pickupNum: 1 },
-      { name: 'stone', num: 0, pickupNum: 1 },
-      { name: 'iron', num: 0, pickupNum: 1 },
+      { name: '木材', num: 0, pickupNum: 1 },
+      { name: '石头', num: 0, pickupNum: 1 },
+      { name: '铁', num: 0, pickupNum: 1 },
     ])
 
   function addNum(name: string, num = -1) {
@@ -30,20 +43,17 @@ export const useResourcesStore = defineStore('resources', () => {
 })
 
 export const useScienceStore = defineStore('science', () => {
-  const pickupWoodNum: IBuilding = {
-    cost: {
-      wood: 10,
+  const pickupWoodNum = reactive<IBuilding>(
+    JSON.parse(localStorage.getItem('science') as string) || {
+      cost: {
+        wood: 10,
+      },
+      unlock: false,
+      level: 0,
     },
-    unlock: false,
-  }
-  const v = reactive<Record<string, IBuilding>>({
-    pickupWoodNum: { cost: { wood: 10 }, unlock: false },
-  })
+  )
 
-  const autoWood = false
-  const smithy = false
-
-  return { pickupWoodNum, autoWood, smithy, v }
+  return { pickupWoodNum }
 })
 
 export const useBuildingStore = defineStore('building', () => {})

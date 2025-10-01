@@ -13,9 +13,14 @@
 </template>
 
 <script setup lang="ts">
+<<<<<<< HEAD
 import { ref } from 'vue'
 import pickupBtn from './Card/PickupBtn/pickupBtn.vue'
 import ScienceBtn from './Card/ScienceBtn/ScienceBtn.vue'
+=======
+import ScienceBtn from './Card/ScienceBtn.vue'
+import pickupBtn from './Card/pickupBtn.vue'
+>>>>>>> 16b805c348265b733e8fbb5a362ab44a98edfc03
 import { useScienceStore } from '@/stores/counter'
 
 let prop = defineProps(['title'])

@@ -6,6 +6,7 @@ export interface IResource {
 
 export interface IBuilding {
   cost: {}
+  level: number
   unlock: boolean
 }
 
